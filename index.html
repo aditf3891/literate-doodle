@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generator Barcode</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Generator Barcode</h1>
+      <p class="subtitle">Buat barcode dari teks atau angka dalam beberapa detik.</p>
+
+      <section class="panel">
+        <label for="barcode-text">Teks / angka</label>
+        <input id="barcode-text" type="text" placeholder="Contoh: 8991234567890" value="8991234567890" />
+
+        <div class="row">
+          <div class="field">
+            <label for="barcode-format">Format</label>
+            <select id="barcode-format">
+              <option value="CODE128">CODE128</option>
+              <option value="EAN13">EAN13</option>
+              <option value="UPC">UPC</option>
+              <option value="ITF14">ITF14</option>
+              <option value="MSI">MSI</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="barcode-width">Lebar garis</label>
+            <input id="barcode-width" type="number" min="1" max="8" value="2" />
+          </div>
+
+          <div class="field">
+            <label for="barcode-height">Tinggi</label>
+            <input id="barcode-height" type="number" min="40" max="220" value="100" />
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="generate-btn" type="button">Generate</button>
+          <button id="download-btn" type="button">Download PNG</button>
+        </div>
+
+        <p id="error-msg" class="error" role="alert" aria-live="polite"></p>
+      </section>
+
+      <section class="preview">
+        <canvas id="barcode-canvas" aria-label="Hasil barcode"></canvas>
+      </section>
+    </main>
+  </body>
+</html>
